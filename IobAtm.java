@@ -59,7 +59,7 @@ public class IobAtm implements AtmFacilities {
 
 	public void withdraw(int amount) {
 		
-		boolean accountBalExistFlag = checkForAccountBalance(amount);
+		boolean accountBalExistFlag = checkForMinimumAccountBalance(amount);
 		if (accountBalExistFlag) {
 			System.out.println("Account :" +accountBalance );
 			if ((accountBalance - amount) > 0 ) {
@@ -82,7 +82,7 @@ public class IobAtm implements AtmFacilities {
 		checkBalance();
 	}
 	
-	public boolean checkForAccountBalance (int amount) {
+	public boolean checkForMinimumAccountBalance (int amount) {
 		if (accountBalance > 100 ) {
 			return true;
 		}
