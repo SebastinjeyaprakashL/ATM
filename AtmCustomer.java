@@ -10,7 +10,7 @@ public class AtmCustomer {
 			return amount;
 		}
 		catch (Exception e) {
-			System.out.println("Invalid amount, Please enter the amount in multiple of 100s");
+			System.out.println("Invalid amount !");
 			return 0 ;
 		}
 		
