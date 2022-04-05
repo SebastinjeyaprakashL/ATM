@@ -13,7 +13,7 @@ enum Languages {
 public class IobAtm implements AtmFacilities {
 	public static Long cardNumber;
 	private static int accountId, transactionFee = 0;
-	public static float accountBalance;
+	private static float accountBalance;
 	public static boolean ownBankCard ;
 	CustomerAccountData customerAccountData = new CustomerAccountData();
 	
