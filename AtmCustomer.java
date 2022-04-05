@@ -36,7 +36,7 @@ public class AtmCustomer {
 		System.out.println("Welcome, please insert your card.");
 		System.out.println( "\n =======AFTER INSERTING========");
 		//Hard coded card number and bank type(Here IOB ==> true, Other Bank ==> false)  
-		IobAtm.cardNumber =  3L;
+		IobAtm.setCardNumber(3L); 
 		IobAtm.ownBankCard = false;
 		////////////////////////
 		IobAtm iobAtm = new IobAtm();
