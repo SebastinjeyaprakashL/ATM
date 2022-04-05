@@ -75,7 +75,7 @@ public class IobAtm implements AtmFacilities {
 
 	public void deposit(int amount) {
 		
-		accountBalance += amount ;
+		accountBalance += amount - transactionFee;
 		customerAccountData.setUpdatedAccountBalance (accountId,accountBalance);
 		getAccountDetails();
 		System.out.println("Amount "+ amount +" deposited Successfully");
