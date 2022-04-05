@@ -11,7 +11,7 @@ enum Languages {
 }
 
 public class IobAtm implements AtmFacilities {
-	public static Long cardNumber;
+	private static Long cardNumber;
 	private static int accountId, transactionFee = 0;
 	private static float accountBalance;
 	public static boolean ownBankCard ;
