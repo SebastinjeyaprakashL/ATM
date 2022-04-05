@@ -17,6 +17,10 @@ public class IobAtm implements AtmFacilities {
 	public static boolean ownBankCard ;
 	CustomerAccountData customerAccountData = new CustomerAccountData();
 	
+	public static void setCardNumber (long cardnumber) {
+		cardNumber = cardnumber;
+	}
+	
 	public void displayLanguages() {		
 		System.out.println("Choose your language :");
 		for (Languages value : Languages.values()) {
