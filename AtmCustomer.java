@@ -31,54 +31,60 @@ public class AtmCustomer {
 	}
 	
 	public static void main(String[] args) {
-		boolean cancelFlag = false;
-		AtmCustomer atmCustomer = new AtmCustomer();
-		System.out.println("Welcome, please insert your card.");
-		System.out.println( "\n =======AFTER INSERTING========");
-		//Hard coded card number and bank type(Here IOB ==> true, Other Bank ==> false)  
-		IobAtm.setCardNumber(3L); 
-		IobAtm.ownBankCard = false;
-		////////////////////////
-		IobAtm iobAtm = new IobAtm();
-		iobAtm.displayLanguages();		
-		String languageOption = UserInput.getStringUserInput();
-		String languageName = iobAtm.chooseLanguage(languageOption).name();
-		if (languageName != null) {
-			System.out.println("LANGUAGE : "+ languageName);
-			
-			while (!cancelFlag) {
-				System.out.println("Enter the action to do :"
-						+ "\n1 - WITHDRAW"
-						+ "\n2 - DEPOSIT"
-						+ "\n3 - BALANCE ENQUIRY"
-						+ "\n4 - CANCEL");
-				int customerAction = UserInput.getIntUserInput();
-				switch (customerAction) {
-				case 1 :
-					iobAtm.withdraw(atmCustomer.getAmount("WITHDRAW"));
-					cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
-					break;
-				case 2 : 
-					iobAtm.deposit(atmCustomer.getAmount("DEPOSIT"));
-					cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
-					break;
-				case 3 : 
-					iobAtm.checkBalance();
-					cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
-					break;
-				case 4 : 
-					cancelFlag = true;
-					System.out.println("LAST TRANSACTION CANCELLED!");	
-					break;
-				default :
-					break;
-						
+		try {
+			boolean cancelFlag = false;
+			AtmCustomer atmCustomer = new AtmCustomer();
+			System.out.println("Welcome, please insert your card.");
+			System.out.println( "\n =======AFTER INSERTING========");
+			//Hard coded card number and bank type(Here IOB ==> true, Other Bank ==> false)  
+			IobAtm.setCardNumber(2L); 
+			IobAtm.ownBankCard = true;
+			////////////////////////
+			IobAtm iobAtm = new IobAtm();
+			iobAtm.displayLanguages();		
+			String languageOption = UserInput.getStringUserInput();
+			String languageName = iobAtm.chooseLanguage(languageOption).name();
+			if (languageName != null) {
+				System.out.println("LANGUAGE : "+ languageName);
 				
+				while (!cancelFlag) {
+					System.out.println("Enter the action to do :"
+							+ "\n1 - WITHDRAW"
+							+ "\n2 - DEPOSIT"
+							+ "\n3 - BALANCE ENQUIRY"
+							+ "\n4 - CANCEL");
+					int customerAction = UserInput.getIntUserInput();
+					switch (customerAction) {
+					case 1 :
+						iobAtm.withdraw(atmCustomer.getAmount("WITHDRAW"));
+						cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
+						break;
+					case 2 : 
+						iobAtm.deposit(atmCustomer.getAmount("DEPOSIT"));
+						cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
+						break;
+					case 3 : 
+						iobAtm.checkBalance();
+						cancelFlag = atmCustomer.getUserOptionToStayLoggedIn();
+						break;
+					case 4 : 
+						cancelFlag = true;
+						System.out.println("LAST TRANSACTION CANCELLED!");	
+						break;
+					default :
+						System.out.println("Invalid Option!");
+						break;
+							
+					
+					}
 				}
+				
 			}
-			
-		}
 
+		}
+		catch (Exception e) {
+			System.out.println("Invalid Input " + e);
+		}
 	}
 
 }
